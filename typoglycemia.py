@@ -15,11 +15,9 @@ def transpose(text: str) -> str:
                 word.append(text[head])
                 head += 1
             
-            if not len(word):
-                pass
-            elif len(word) == 1:
+            if len(word) == 1:
                 output += word.pop()
-            else:
+            elif len(word) > 1:
                 last_letter = word.pop()
                 random.shuffle(word)
                 output += "".join(word)
