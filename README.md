@@ -6,7 +6,6 @@ Script that jumbles text except for the first and last letter to prove Typoglyce
 > **Typoglycemia**  
 > A cognitive principle in our brain can read the words as a whole and not letter by letter, unless the word is unknown.
 
-
 ## Usage
 
 `python3 typoglycemia.py [text]...` to translate the passed text, *doesn't require quote marks*
