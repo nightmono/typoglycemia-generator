@@ -32,8 +32,18 @@ def transpose(text: str) -> str:
     return output
         
 def main():
-    while 1:
-        print(transpose(input("> ")))
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Script that jumbles text except for the first and last letter to prove Typoglycemia.")
+    parser.add_argument("text", nargs="*", help="text that will be shuffled")
+    
+    args = parser.parse_args()
+    
+    text = " ".join(args.text)    
+    if not text:
+        parser.print_help()
+    else:
+        print(transpose(text))
 
 if __name__ == "__main__":
     main()
