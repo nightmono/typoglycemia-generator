@@ -30,20 +30,34 @@ def transpose(text: str) -> str:
             current += 1
             
     return output
+    
+def interactive():
+    print("CTRL-C to exit.")
+    while 1:
+        try:
+            print(transpose(input("> ")))
+        except KeyboardInterrupt:
+            print("\nInteractive mode exitted.")
+            break
         
 def main():
     import argparse
     
     parser = argparse.ArgumentParser(description="Script that jumbles text except for the first and last letter to prove Typoglycemia.")
     parser.add_argument("text", nargs="*", help="text that will be shuffled")
+    parser.add_argument('-i', '--interactive', help="enter interactive mode", action='store_true') 
     
     args = parser.parse_args()
+
+    if args.interactive:
+        interactive()
     
-    text = " ".join(args.text)    
-    if not text:
-        parser.print_help()
     else:
-        print(transpose(text))
+        text = " ".join(args.text)    
+        if not text:
+            parser.print_help()
+        else:
+            print(transpose(text))
 
 if __name__ == "__main__":
     main()
